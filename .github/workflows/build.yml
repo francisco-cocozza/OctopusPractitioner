@@ -84,13 +84,13 @@ jobs:
         working-directory: src
         run: dotnet restore
 
-      # - name: build website           
-      #   working-directory: src/Octopus.Trident.Web
-      #   run: dotnet publish --output "$GITHUB_WORKSPACE/artifacts/web" -c Release --runtime win-x64 --sc false --p:Version=${{ steps.ReleaseNum.outputs.APP_VERSION }}
+      - name: build website           
+        working-directory: src/Octopus.Trident.Web
+        run: dotnet publish --output "$GITHUB_WORKSPACE/artifacts/web" -c Release --runtime win-x64 --sc false --p:Version=${{ steps.ReleaseNum.outputs.APP_VERSION }}
 
-      # - name: build database        
-      #   working-directory: src/Octopus.Trident.Database.DbUp
-      #   run: dotnet publish --output "$GITHUB_WORKSPACE/artifacts/database" -c Release --runtime win-x64 --sc true --p:PublishSingleFile=true --p:PublishTrimmed=true --p:Version=${{ steps.ReleaseNum.outputs.APP_VERSION }}
+      - name: build database        
+        working-directory: src/Octopus.Trident.Database.DbUp
+        run: dotnet publish --output "$GITHUB_WORKSPACE/artifacts/database" -c Release --runtime win-x64 --sc true --p:PublishSingleFile=true --p:PublishTrimmed=true --p:Version=${{ steps.ReleaseNum.outputs.APP_VERSION }}
       
       - name: package website
         id: "website_package"
@@ -146,4 +146,5 @@ jobs:
         with:
           project: ${{ env.OCTOPUS_PROJECT_NAME }}
           release_number: ${{ steps.ReleaseNum.outputs.APP_VERSION }}
+
           environments: ${{ steps.ReleaseNum.outputs.OCTOPUS_ENVIRONMENT }}
