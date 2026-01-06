@@ -18,7 +18,7 @@ env:
   OCTOPUS_API_KEY: ${{ secrets.OCTOPUSSERVERAPIKEY }}
   OCTOPUS_URL: ${{ secrets.OCTOPUSSERVERURL }}
 
-## JOBS
+
 jobs:
   build-and-push-application:
     runs-on: ubuntu-latest
@@ -160,4 +160,5 @@ jobs:
       #     environment: ${{ steps.ReleaseNum.outputs.OCTOPUS_ENVIRONMENT }}
 
       #     tenants: ${{ env.OCTOPUS_TENANT_NAME }}
+
 
