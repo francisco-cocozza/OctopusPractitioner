@@ -85,6 +85,7 @@ step "dba-review-required" {
             Octopus.Action.Manual.BlockConcurrentDeployments = "False"
             Octopus.Action.Manual.Instructions = "Please review the delta script that was generated"
             Octopus.Action.Manual.ResponsibleTeamIds = "dba,global/octopus-managers"
+            Octopus.Action.RunOnServer = "false"
         }
         tenant_tags = ["Tenant Type/Pseudo"]
     }
@@ -137,6 +138,7 @@ step "deploy-trident-website" {
             Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.JsonConfigurationVariablesTargets = "appSettings.json"
             Octopus.Action.Package.PackageId = "Trident.Web"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
 
@@ -167,7 +169,7 @@ step "verify-application" {
 }
 
 step "update-load-balancer" {
-    name = "Update Load Balancer"
+    name = "Update Load Balancer to point to a new version of the application"
 
     action {
         action_type = "Octopus.Script"
