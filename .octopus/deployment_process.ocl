@@ -39,7 +39,7 @@ step "run-a-script" {
                         apt-get clean && \
                         rm -rf /var/lib/apt/lists/* && \
                         rm -f packages-microsoft-prod.deb && \
-                        sudo apt-get -f install
+                        apt-get -f install
                     EOT
         }
     }
