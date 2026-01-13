@@ -30,7 +30,7 @@ step "run-a-script" {
                     
                     
                     RUN curl -LO -k "https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb"
-                    RUN apt-get install libicu76
+                    # RUN apt-get install libicu76
                     RUN dpkg --ignore-depends=libicu74 -i powershell_7.5.2-1.deb_amd64.deb
                     RUN dpkg -i packages-microsoft-prod.deb
                     RUN apt-get update && \
