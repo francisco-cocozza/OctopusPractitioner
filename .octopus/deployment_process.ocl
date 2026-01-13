@@ -32,7 +32,7 @@ step "run-a-script" {
                     RUN curl -LO -k "https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb"
                     # RUN apt-get install libicu76
                     RUN dpkg -i packages-microsoft-prod.deb
-                    RUN apt-get install -y libicu
+                    RUN apt-get install -y libicu-dev
                     RUN curl -LO -k "https://github.com/PowerShell/PowerShell/releases/download/v7.5.2/powershell_7.5.2-1.deb_amd64.deb"
                     RUN dpkg -i powershell_7.5.2-1.deb_amd64.deb
                     
