@@ -16,7 +16,7 @@ step "run-a-script" {
 
         container {
             feed = "dockerhub"
-            image = "octopusdeploy/worker-tools:6.5"
+            image = "codefresh/cli:latest"
         }
     }
 }
